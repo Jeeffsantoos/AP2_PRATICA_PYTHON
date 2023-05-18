@@ -1,9 +1,6 @@
-import sqlite3
-from criaTabelas import criaTabelaCliente, criaTabelaVendas, criaTabelaMotocicleta, DB_FILE
-from AdicionarCampo import AdicionarCliente
-
-connection = sqlite3.connect(DB_FILE)
-cursor = connection.cursor()
+from criaTabelas import criaTabelaCliente, criaTabelaVendas, criaTabelaMotocicleta
+from AdicionarCampo import AdicionarCliente, AdicionarMotocicleta, AdicionarVenda
+from exibirDados import exibirClientes, exibirMotocicletas, exibirVendas
 
 if __name__ == '__main__':
     criaTabelaCliente()

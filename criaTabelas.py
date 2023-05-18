@@ -65,6 +65,7 @@ def criaTabelaVendas():
                 'VendaId INTEGER PRIMARY KEY AUTOINCREMENT,'
                 'id_cliente INTEGER NOT NULL,'
                 'id_motocicleta INTEGER NOT NULL,'
+                'data DATE NOT NULL,'
                 'FOREIGN KEY (id_cliente) REFERENCES Clientes(ClienteId),'
                 'FOREIGN KEY (id_motocicleta) REFERENCES Motocicletas(MotoId)'
                 ')'
