@@ -15,10 +15,10 @@ def criaTabelaMotocicleta():
         cursor.execute(
             f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
             '('
-            'id INTEGER PRIMARY KEY AUTOINCREMENT,'
-            'modelo VARCHAR,'
-            'placa VARCHAR(7),'
-            'preco VARCHAR'
+            'id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,'
+            'modelo VARCHAR NOT NULL,'
+            'placa VARCHAR(7) NOT NULL,'
+            'preco VARCHAR NOT NULL'
             ')'
         )
         
@@ -34,10 +34,10 @@ def criaTabelaCliente():
         cursor.execute(
             f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
             '('
-            'id INTEGER PRIMARY KEY AUTOINCREMENT,'
-            'nome VARCHAR,'
-            'cpf VARCHAR(11),'
-            'telefone VARCHAR(11)'
+            'id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,'
+            'nome VARCHAR NOT NULL,'
+            'cpf VARCHAR(11) NOT NULL,'
+            'telefone VARCHAR(11) NOT NULL'
             ')'
         )
         
