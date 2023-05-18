@@ -8,40 +8,39 @@ DB_FILE = ROOT_DIR / DB_NAME
 def criaTabelaMotocicleta():
     
     TABLE_NAME = 'Motocicletas'
-    connection = sqlite3.connect(DB_FILE)
-    cursor = connection.cursor()
+    
+    with sqlite3.connect(DB_FILE) as connection:
+        cursor = connection.cursor()
 
     cursor.execute(
         f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
         '('
         'id INTEGER PRIMARY KEY AUTOINCREMENT,'
-        'modelo TEXT,'
-        'placa TEXT,'
-        'preco TEXT'
+        'modelo VARCHAR,'
+        'placa VARCHAR(7),'
+        'preco VARCHAR'
         ')'
     )
     
     connection.commit()
-    cursor.close()
-    connection.close()
     
 def criaTabelaCliente():
     
     TABLE_NAME = 'Clientes'
-    connection = sqlite3.connect(DB_FILE)
-    cursor = connection.cursor()
+    
+    with sqlite3.connect(DB_FILE) as connection:
+        cursor = connection.cursor()
 
     cursor.execute(
         f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
         '('
         'id INTEGER PRIMARY KEY AUTOINCREMENT,'
-        'nome TEXT,'
-        'cpf TEXT,'
-        'telefone TEXT'
+        'nome VARCHAR,'
+        'cpf VARCHAR(11),'
+        'telefone VARCHAR(11)'
         ')'
     )
     
     connection.commit()
-    cursor.close()
-    connection.close()
+
     
