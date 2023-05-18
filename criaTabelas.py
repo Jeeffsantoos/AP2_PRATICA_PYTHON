@@ -12,17 +12,17 @@ def criaTabelaMotocicleta():
     with sqlite3.connect(DB_FILE) as connection:
         cursor = connection.cursor()
 
-    cursor.execute(
-        f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
-        '('
-        'id INTEGER PRIMARY KEY AUTOINCREMENT,'
-        'modelo VARCHAR,'
-        'placa VARCHAR(7),'
-        'preco VARCHAR'
-        ')'
-    )
-    
-    connection.commit()
+        cursor.execute(
+            f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
+            '('
+            'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+            'modelo VARCHAR,'
+            'placa VARCHAR(7),'
+            'preco VARCHAR'
+            ')'
+        )
+        
+        connection.commit()
     
 def criaTabelaCliente():
     
@@ -31,16 +31,16 @@ def criaTabelaCliente():
     with sqlite3.connect(DB_FILE) as connection:
         cursor = connection.cursor()
 
-    cursor.execute(
-        f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
-        '('
-        'id INTEGER PRIMARY KEY AUTOINCREMENT,'
-        'nome VARCHAR,'
-        'cpf VARCHAR(11),'
-        'telefone VARCHAR(11)'
-        ')'
-    )
-    
-    connection.commit()
+        cursor.execute(
+            f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
+            '('
+            'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+            'nome VARCHAR,'
+            'cpf VARCHAR(11),'
+            'telefone VARCHAR(11)'
+            ')'
+        )
+        
+        connection.commit()
 
     
