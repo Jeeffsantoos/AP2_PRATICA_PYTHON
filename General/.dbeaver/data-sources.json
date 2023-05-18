@@ -1,0 +1,29 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-1882bc41d40-33e862be045d9f0c": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "CRUD_AP2",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\jeeff\\Desktop\\Faculdade ADS\\01.2023\\PRATICA DE PROGRAMAÇÃO EM SISTEMAS DE INFORMAÇÃO\\AP2_PRATICA_PROGRAMAÇÃO\\CRUD_AP2",
+				"url": "jdbc:sqlite:C:\\Users\\jeeff\\Desktop\\Faculdade ADS\\01.2023\\PRATICA DE PROGRAMAÇÃO EM SISTEMAS DE INFORMAÇÃO\\AP2_PRATICA_PROGRAMAÇÃO\\CRUD_AP2",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

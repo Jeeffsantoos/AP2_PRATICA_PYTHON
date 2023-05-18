@@ -1,0 +1,35 @@
+2023-05-17 19:10:41.705 - DBeaver 23.0.4.202305071722 is starting
+2023-05-17 19:10:41.707 - OS: Windows 11 10.0 (amd64)
+2023-05-17 19:10:41.707 - Java version: 17.0.6 by Eclipse Adoptium (64bit)
+2023-05-17 19:10:41.708 - Install path: 'C:\Users\jeeff\AppData\Local\DBeaver'
+2023-05-17 19:10:41.708 - Instance path: 'file:/C:/Users/jeeff/Desktop/Faculdade ADS/01.2023/PRATICA DE PROGRAMAÇÃO EM SISTEMAS DE INFORMAÇÃO/AP2_PRATICA_PROGRAMAÇÃO/'
+2023-05-17 19:10:41.709 - Memory available 64Mb/1024Mb
+2023-05-17 19:10:41.726 - Create display
+2023-05-17 19:10:41.874 - Initializing DBeaver 23.0.4
+2023-05-17 19:10:41.876 - Host plugin: org.jkiss.dbeaver.ui.app.standalone 23.0.4.202305071722
+2023-05-17 19:10:41.876 - Initialize desktop platform...
+2023-05-17 19:10:42.051 - BounceCastle bundle found. Use JCE provider BC
+> Start Core File Systems [org.eclipse.core.filesystem 1.9.500.v20220817-1539]
+> Start Core Resource Management [org.eclipse.core.resources 3.18.200.v20230209-0754]
+> Start Team Support Core [org.eclipse.team.core 3.9.700.v20221201-0946]
+> Start DBeaver UI Navigator [org.jkiss.dbeaver.ui.navigator 1.0.105.202305071722]
+2023-05-17 19:10:42.220 - 
+2023-05-17 19:10:42.220 - 	Refreshing workspace.
+2023-05-17 19:10:42.223 - Refreshing workspace contents
+2023-05-17 19:10:42.390 - Initialize base platform...
+> Start Expression Language [org.eclipse.core.expressions 3.8.200.v20220613-1047]
+2023-05-17 19:10:42.415 - Platform initialized (539ms)
+> Start DBeaver UI Editors - Base [org.jkiss.dbeaver.ui.editors.base 1.0.105.202305071722]
+2023-05-17 19:10:42.426 - Starting RMI server at 26660
+2023-05-17 19:10:42.478 - Run workbench
+> Start DBeaver UI [org.jkiss.dbeaver.ui 5.1.120.202305071722]
+> Start Eclipse e4 Workbench SWT [org.eclipse.e4.ui.workbench.swt 0.16.800.v20230220-0932]
+> Start Eclipse Application Services [org.eclipse.e4.core.services 2.3.400.v20220915-1347]
+> Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.5.200.v20230220-0932]
+> Start Eclipse e4 Progress View [org.eclipse.e4.ui.progress 0.3.700.v20230214-1401]
+> Start EMF XML/XMI Persistence [org.eclipse.emf.ecore.xmi 2.18.0.v20230211-1150]
+> Start Eclipse CSS SWT Theme Support [org.eclipse.e4.ui.css.swt.theme 0.13.300.v20230220-0932]
+> Start Eclipse e4 Workbench Add-ons [org.eclipse.e4.ui.workbench.addons.swt 1.4.600.v20230220-0932]
+> Start Eclipse e4 Workbench SWT Renderer [org.eclipse.e4.ui.workbench.renderers.swt 0.15.800.v20230214-1401]
+> Start Eclipse Bindings Support [org.eclipse.e4.ui.bindings 0.13.300.v20230220-0932]
+> Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.17.200.v20220613-1008]
