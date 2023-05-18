@@ -2,45 +2,76 @@ import sqlite3
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent
-DB_NAME = 'CRUD_AP2'
+DB_NAME = 'CRUD_AP2.db'
 DB_FILE = ROOT_DIR / DB_NAME
 
 def criaTabelaMotocicleta():
-    
-    TABLE_NAME = 'Motocicletas'
-    
-    with sqlite3.connect(DB_FILE) as connection:
-        cursor = connection.cursor()
-
-        cursor.execute(
-            f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
-            '('
-            'id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,'
-            'modelo VARCHAR NOT NULL,'
-            'placa VARCHAR(7) NOT NULL,'
-            'preco VARCHAR NOT NULL'
-            ')'
-        )
+    try:
         
-        connection.commit()
+        TABLE_NAME = 'Motocicletas'
+        
+        with sqlite3.connect(DB_FILE) as connection:
+            cursor = connection.cursor()
+
+            cursor.execute(
+                f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
+                '('
+                'MotoId INTEGER PRIMARY KEY AUTOINCREMENT,'
+                'modelo VARCHAR NOT NULL,'
+                'placa VARCHAR(7) NOT NULL,'
+                'preco VARCHAR NOT NULL'
+                ')'
+            )
+            
+            connection.commit()
+            print("O arquivo do banco de dados foi criado com sucesso.")
+    except Exception as e:
+        print("Erro ao criar o arquivo do banco de dados (Motocicletas): ", str(e))
     
 def criaTabelaCliente():
-    
-    TABLE_NAME = 'Clientes'
-    
-    with sqlite3.connect(DB_FILE) as connection:
-        cursor = connection.cursor()
+    try:
 
-        cursor.execute(
-            f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
-            '('
-            'id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,'
-            'nome VARCHAR NOT NULL,'
-            'cpf VARCHAR(11) NOT NULL,'
-            'telefone VARCHAR(11) NOT NULL'
-            ')'
-        )
+        TABLE_NAME = 'Clientes'
         
-        connection.commit()
+        with sqlite3.connect(DB_FILE) as connection:
+            cursor = connection.cursor()
 
+            cursor.execute(
+                f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
+                '('
+                'ClienteId INTEGER PRIMARY KEY AUTOINCREMENT,'
+                'nome VARCHAR(255) NOT NULL,'
+                'cpf VARCHAR(11) NOT NULL,'
+                'telefone VARCHAR(11) NOT NULL'
+                ')'
+            )
+            
+            connection.commit()
+            print("O arquivo do banco de dados foi criado com sucesso.")
+    except Exception as e:
+        print("Erro ao criar o arquivo do banco de dados (Clientes): ", str(e))
+
+def criaTabelaVendas():
+    try:
+
+        TABLE_NAME = "Vendas"
+
+        with sqlite3.connect(DB_FILE) as connection:
+            cursor = connection.cursor()
+
+            cursor.execute(
+                f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
+                '('
+                'VendaId INTEGER PRIMARY KEY AUTOINCREMENT,'
+                'id_cliente INTEGER NOT NULL,'
+                'id_motocicleta INTEGER NOT NULL,'
+                'FOREIGN KEY (id_cliente) REFERENCES Clientes(ClienteId),'
+                'FOREIGN KEY (id_motocicleta) REFERENCES Motocicletas(MotoId)'
+                ')'
+            )
+
+            connection.commit()
+            print("O arquivo do banco de dados foi criado com sucesso.")
+    except Exception as e:
+        print("Erro ao criar o arquivo do banco de dados (Vendas): ", str(e))
     
