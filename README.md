@@ -1,8 +1,8 @@
-#Projeto de CRUD Python - Cadastro de Motocicletas, Clientes e Vendas
+# Projeto de CRUD Python - Cadastro de Motocicletas, Clientes e Vendas
 
 Este projeto consiste em um aplicativo de CRUD (Create, Read, Update, Delete) desenvolvido em Python para o cadastro de motocicletas, clientes e vendas. O objetivo é fornecer um sistema básico para gerenciar informações relacionadas a motocicletas, clientes e suas respectivas vendas.
 
-##Funcionalidades
+## Funcionalidades
 
 O aplicativo possui as seguintes funcionalidades:
 
@@ -18,14 +18,9 @@ O aplicativo possui as seguintes funcionalidades:
 - Python 3.x
 - SQLite3
 
-##Como executar o projeto
+## Como executar o projeto
 
 1. Clone este repositório em sua máquina local.
-
-git clone https://github.com/seu-usuario/seu-repositorio.git
-
-css
-
 
 2. Certifique-se de ter o Python instalado em sua máquina.
 
@@ -46,7 +41,7 @@ markdown
 
 5. O aplicativo será executado e você poderá interagir com as funcionalidades disponíveis.
 
-##Observações
+## Observações
 
 - O arquivo de banco de dados `CRUD_AP2.db` será criado automaticamente na mesma pasta onde o arquivo `main.py` está localizado.
 - As tabelas necessárias para o funcionamento do aplicativo serão criadas automaticamente quando o programa for executado pela primeira vez.
@@ -54,4 +49,4 @@ markdown
 
 Sinta-se à vontade para personalizar e expandir este projeto de acordo com suas necessidades.
 
-Lembre-se de substituir seu-usuario e seu-repositorio pelo seu nome de usuário e nome do repositório no GitHub, respectivamente.
+Copie o código acima e cole no arquivo README.md do seu repositório no GitHub. O formato Markdown será corretamente interpretado e exibido no GitHub. Certifique-se de salvar o arquivo como README.md para que seja reconhecido como o arquivo de README do seu repositório.
