@@ -45,7 +45,7 @@ def adicionarVenda(clienteId, motoId, data):
             cursor = connection.cursor()
 
             cursor.execute(
-                f"INSERT INTO {TABLE_NAME} (clienteId, motoId, data) VALUES (?, ?, ?)",
+                f"INSERT INTO {TABLE_NAME} (cliente_id, moto_id, data) VALUES (?, ?, ?)",
                 (clienteId, motoId, data),
             )
 
