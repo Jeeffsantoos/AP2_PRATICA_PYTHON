@@ -1,6 +1,7 @@
 from criaTabelas import criaTabelaCliente, criaTabelaVendas, criaTabelaMotocicleta
-from AdicionarCampo import AdicionarCliente, AdicionarMotocicleta, AdicionarVenda
+from adicionarCampo import AdicionarCliente, AdicionarMotocicleta, AdicionarVenda
 from exibirDados import exibirClientes, exibirMotocicletas, exibirVendas
+from deletarCampo import deletarCliente, deletarMotocicleta, deletarVenda
 
 if __name__ == '__main__':
     criaTabelaCliente()
