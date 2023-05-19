@@ -38,3 +38,4 @@ def exibirVendas():
             for row in cursor.fetchall():
                 _id, clienteId, motoId, data = row
                 print(_id, clienteId, motoId, data)
+                
