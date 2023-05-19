@@ -26,18 +26,12 @@ O aplicativo possui as seguintes funcionalidades:
 
 3. Instale a biblioteca SQLite3, caso não esteja instalada. Você pode usar o seguinte comando:
 
-pip install pysqlite3
-
-javascript
-
+- pip install pysqlite3
 
 4. Navegue até o diretório do projeto e execute o arquivo `main.py`:
 
-cd seu-repositorio
-python main.py
-
-markdown
-
+- cd seu-repositorio
+- python main.py
 
 5. O aplicativo será executado e você poderá interagir com as funcionalidades disponíveis.
 
