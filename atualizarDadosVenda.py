@@ -29,7 +29,7 @@ def atualizarIdCliente(VendaId , idCliente):
 
             cursor.execute(
                 f'UPDATE {TABLE_NAME} '
-                'SET id_cliente = ? '
+                'SET cliente_id = ? '
                 'WHERE VendaId = ?',
                 (idCliente, VendaId)
             )
