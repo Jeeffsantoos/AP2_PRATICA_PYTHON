@@ -1,7 +1,7 @@
 import sqlite3
 
 # Adiciona o cliente no banco de dados
-def AdicionarCliente(nome, cpf, telefone):
+def adicionarCliente(nome, cpf, telefone):
     try:
         TABLE_NAME = "Clientes"
 
@@ -19,7 +19,7 @@ def AdicionarCliente(nome, cpf, telefone):
         print("Erro ao adicionar o cliente: ", str(e))
 
 # Adiciona a motocicleta no banco de dados
-def AdicionarMotocicleta(modelo, placa, preco):
+def adicionarMotocicleta(modelo, placa, preco):
     try:
         TABLE_NAME = "Motocicletas"
 
@@ -37,7 +37,7 @@ def AdicionarMotocicleta(modelo, placa, preco):
         print("Erro ao adicionar a motocicleta: ", str(e))
 
 # Adiciona a venda no banco de dados
-def AdicionarVenda(clienteId, motoId, data):
+def adicionarVenda(clienteId, motoId, data):
     try:
         TABLE_NAME = "Vendas"
 
@@ -45,7 +45,7 @@ def AdicionarVenda(clienteId, motoId, data):
             cursor = connection.cursor()
 
             cursor.execute(
-                f"INSERT INTO {TABLE_NAME} (clienteId, motoId, data) VALUES (?, ?, ?)",
+                f"INSERT INTO {TABLE_NAME} (cliente_id, moto_id, data) VALUES (?, ?, ?)",
                 (clienteId, motoId, data),
             )
 

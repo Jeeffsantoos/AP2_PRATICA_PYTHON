@@ -63,11 +63,11 @@ def criaTabelaVendas():
                 f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
                 '('
                 'VendaId INTEGER PRIMARY KEY AUTOINCREMENT,'
-                'id_cliente INTEGER NOT NULL,'
-                'id_motocicleta INTEGER NOT NULL,'
+                'cliente_id INTEGER NOT NULL,'
+                'moto_id INTEGER NOT NULL,'
                 'data DATE NOT NULL,'
-                'FOREIGN KEY (id_cliente) REFERENCES Clientes(ClienteId),'
-                'FOREIGN KEY (id_motocicleta) REFERENCES Motocicletas(MotoId)'
+                'FOREIGN KEY (cliente_id) REFERENCES Clientes(ClienteId),'
+                'FOREIGN KEY (moto_id) REFERENCES Motocicletas(MotoId)'
                 ')'
             )
 
@@ -75,4 +75,3 @@ def criaTabelaVendas():
             print("O arquivo do banco de dados foi criado com sucesso.")
     except Exception as e:
         print("Erro ao criar o arquivo do banco de dados (Vendas): ", str(e))
-    
