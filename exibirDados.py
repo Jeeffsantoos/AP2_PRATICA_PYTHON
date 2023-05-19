@@ -1,6 +1,6 @@
 import sqlite3
 
-def ExibirClientes():
+def exibirClientes():
 
     TABLE_NAME = 'Clientes'
 
@@ -13,7 +13,7 @@ def ExibirClientes():
             _id, nome, cpf, telefone = row
             print(_id, nome, telefone, cpf)
 
-def ExibirMotocicletas():
+def exibirMotocicletas():
 
     TABLE_NAME = 'Motocicletas'
 
@@ -26,7 +26,7 @@ def ExibirMotocicletas():
             _id, modelo, placa, preco = row
             print(_id, modelo, placa, preco)
 
-def ExibirVendas():
+def exibirVendas():
     
         TABLE_NAME = 'Vendas'
     

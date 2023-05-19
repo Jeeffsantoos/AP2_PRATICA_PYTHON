@@ -1,5 +1,5 @@
 from criaTabelas import criaTabelaCliente, criaTabelaVendas, criaTabelaMotocicleta
-from AdicionarCampo import AdicionarCliente, AdicionarMotocicleta, AdicionarVenda
+from adicionarCampo import adicionarCliente, adicionarMotocicleta, adicionarVenda
 from exibirDados import exibirClientes, exibirMotocicletas, exibirVendas
 
 if __name__ == '__main__':
