@@ -42,5 +42,3 @@ O aplicativo possui as seguintes funcionalidades:
 - Você pode descomentar a linha `#AdicionarCliente("João", "12345678910", "123456789")` no arquivo `main.py` para adicionar um cliente de exemplo ao banco de dados.
 
 Sinta-se à vontade para personalizar e expandir este projeto de acordo com suas necessidades.
-
-Copie o código acima e cole no arquivo README.md do seu repositório no GitHub. O formato Markdown será corretamente interpretado e exibido no GitHub. Certifique-se de salvar o arquivo como README.md para que seja reconhecido como o arquivo de README do seu repositório.
