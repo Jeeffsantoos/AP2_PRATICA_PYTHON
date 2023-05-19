@@ -1,0 +1,42 @@
+#Projeto de CRUD Python - Cadastro de Motocicletas, Clientes e Vendas
+
+Este projeto consiste em um aplicativo de CRUD (Create, Read, Update, Delete) desenvolvido em Python para o cadastro de motocicletas, clientes e vendas. O objetivo é fornecer um sistema básico para gerenciar informações relacionadas a motocicletas, clientes e suas respectivas vendas.
+Funcionalidades
+
+O aplicativo possui as seguintes funcionalidades:
+
+    Adicionar um cliente ao banco de dados.
+    Adicionar uma motocicleta ao banco de dados.
+    Adicionar uma venda ao banco de dados.
+    Exibir a lista de clientes cadastrados.
+    Exibir a lista de motocicletas cadastradas.
+    Exibir a lista de vendas registradas.
+
+Requisitos
+
+    Python 3.x
+    SQLite3
+
+Como executar o projeto
+
+    Clone este repositório em sua máquina local.
+    Certifique-se de ter o Python instalado em sua máquina.
+    Instale a biblioteca SQLite3, caso não esteja instalada. Você pode usar o seguinte comando:
+
+pip install pysqlite3
+
+Navegue até o diretório do projeto e execute o arquivo main.py:
+
+css
+
+    python main.py
+
+    O aplicativo será executado e você poderá interagir com as funcionalidades disponíveis.
+
+Observações
+
+    O arquivo de banco de dados CRUD_AP2.db será criado automaticamente na mesma pasta onde o arquivo main.py está localizado.
+    As tabelas necessárias para o funcionamento do aplicativo serão criadas automaticamente quando o programa for executado pela primeira vez.
+    Você pode descomentar a linha #AdicionarCliente("João", "12345678910", "123456789") no arquivo main.py para adicionar um cliente de exemplo ao banco de dados.
+
+Sinta-se à vontade para personalizar e expandir este projeto de acordo com suas necessidades.
