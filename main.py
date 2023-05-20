@@ -1,107 +1,168 @@
-import mysql.connector
-
-# Função para conectar ao banco de dados
-def conectar():
-    return mysql.connector.connect(
-        host="localhost",
-        user="seu_usuario",
-        password="sua_senha",
-        database="nome_do_banco"
-    )
-
-# Função para criar uma tabela de motos
-def criar_tabela_motos():
-    conn = conectar()
-    cursor = conn.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS motos (id INT AUTO_INCREMENT PRIMARY KEY, marca VARCHAR(255), modelo VARCHAR(255), ano INT)")
-    conn.close()
-
-# Função para inserir uma moto na tabela
-def inserir_moto():
-    conn = conectar()
-    cursor = conn.cursor()
-    marca = input("Digite a marca da moto: ")
-    modelo = input("Digite o modelo da moto: ")
-    ano = input("Digite o ano da moto: ")
-    sql = "INSERT INTO motos (marca, modelo, ano) VALUES (%s, %s, %s)"
-    valores = (marca, modelo, ano)
-    cursor.execute(sql, valores)
-    conn.commit()
-    print("Moto inserida com sucesso!")
-    conn.close()
-
-# Função para listar todas as motos
-def listar_motos():
-    conn = conectar()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM motos")
-    motos = cursor.fetchall()
-    if not motos:
-        print("Não há motos cadastradas.")
-    else:
-        for moto in motos:
-            print(f"ID: {moto[0]}, Marca: {moto[1]}, Modelo: {moto[2]}, Ano: {moto[3]}")
-    conn.close()
-
-# Função para atualizar os dados de uma moto
-def atualizar_moto():
-    conn = conectar()
-    cursor = conn.cursor()
-    id_moto = input("Digite o ID da moto que deseja atualizar: ")
-    marca = input("Digite a nova marca da moto: ")
-    modelo = input("Digite o novo modelo da moto: ")
-    ano = input("Digite o novo ano da moto: ")
-    sql = "UPDATE motos SET marca=%s, modelo=%s, ano=%s WHERE id=%s"
-    valores = (marca, modelo, ano, id_moto)
-    cursor.execute(sql, valores)
-    conn.commit()
-    if cursor.rowcount == 0:
-        print("Nenhuma moto encontrada com esse ID.")
-    else:
-        print("Moto atualizada com sucesso!")
-    conn.close()
-
-# Função para excluir uma moto
-def excluir_moto():
-    conn = conectar()
-    cursor = conn.cursor()
-    id_moto = input("Digite o ID da moto que deseja excluir: ")
-    sql = "DELETE FROM motos WHERE id=%s"
-    valores = (id_moto,)
-    cursor.execute(sql, valores)
-    conn.commit()
-    if cursor.rowcount == 0:
-        print("Nenhuma moto encontrada com esse ID.")
-    else:
-        print("Moto excluída com sucesso!")
-    conn.close()
-
 # Função para exibir o menu e processar as opções
+
+from criaTabelas import criaTabelaCliente, criaTabelasCliente, criaTabelaVendas, criaTabelaMotocicleta
+from adicionarCampo import adicionarCliente, adicionarMotocicleta, adicionarVenda
+from exibirDados import exibirClientes, exibirMotocicletas, exibirVendas
+from atualizarDadosCliente import atualizarCpfCliente, atualizarNomeCliente, atualizarTelefoneCliente
+from atualizarDadosMotocicleta import atualizarModeloMotocicleta, atualizarPlacaMotocicleta, atualizarPrecoMotocicleta
+from atualizarDadosVenda import atualizarDataVenda, atualizarIdCliente, atualizarIdVendidaVenda
+
 def menu():
     while True:
         print("\n--- MENU ---")
-        print("1 - Criar tabela de motos")
-        print("2 - Inserir uma moto")
-        print("3 - Listar motos")
-        print("4 - Atualizar moto")
-        print("5 - Excluir moto")
+        print("1 - Criar tabelas")
+        print("2 - Adiconar campo")
+        print("3 - Exibir dados")
+        print("4 - Atualizar dados dos clientes")
+        print("5 - Atualizar motos")
+        print("6 - Atualizar vendas")
         print("0 - Sair do programa")
         opcao = input("Digite o número da opção desejada: ")
 
         if opcao == "1":
-            criar_tabela_motos()
+            criaTabelas()
         elif opcao == "2":
-            inserir_moto()
+            adicionarCampo()
         elif opcao == "3":
-            listar_motos()
+            exibirDados()
         elif opcao == "4":
-            atualizar_moto()
+            atualizarDadosCliente()
         elif opcao == "5":
-            excluir_moto()
+            atualizarDadosMotocicleta()
+        elif opcao == "6":
+            atualizarDadosVenda()
         elif opcao == "0":
             print("Saindo do programa...")
             break
         else:
             print("Comando Inválido!")
+
+def adicionarCampo():
+    while True:
+        print("\n--- Adicionar Campo ---")
+        print("1 - Adicionar cliente")
+        print("2 - Adicionar motocicleta")
+        print("3 - Adicionar venda")
+        print("0 - Voltar ao menu anterior")
+        opcao = input("Digite o número da opção desejada: ")
+
+        if opcao == "1":
+            adicionarCliente()
+        elif opcao == "2":
+            adicionarMotocicleta()
+        elif opcao == "3":
+            adicionarVenda()
+        elif opcao == "0":
+            break
+        else:
+            print("Comando Inválido!")
+
+def exibirDados():
+    while True:
+        print("\n--- Exibir Dados ---")
+        print("1 - Exibir lista de clientes")
+        print("2 - Exibir dados das motocicletas")
+        print("3 - Exibir vendas efetuadas")
+        print("0 - Voltar ao menu anterior")
+        opcao = input("Digite o número da opção desejada: ")
+
+        if opcao == "1":
+            exibirClientes()
+        elif opcao == "2":
+            exibirMotocicletas()
+        elif opcao == "3":
+            exibirVendas()
+        elif opcao == "0":
+            break
+        else:
+            print("Comando Inválido!")
+
+def atualizarDadosCliente():
+    while True:
+        print("\n--- Atualizar Dados dos Clientes ---")
+        print("1 - Atualizar CPF do cliente")
+        print("2 - Atualizar nome do cliente")
+        print("3 - Atualizar telefone do cliente")
+        print("0 - Voltar ao menu anterior")
+        opcao = input("Digite o número da opção desejada: ")
+
+        if opcao == "1":
+            atualizarCpfCliente()
+        elif opcao == "2":
+            atualizarNomeCliente()
+        elif opcao == "3":
+            atualizarTelefoneCliente()
+        elif opcao == "0":
+            break
+        else:
+            print("Comando Inválido!")
+
+def atualizarDadosMotocicleta():
+    while True:
+        print("\n--- Atualizar Dados das Motocicletas ---")
+        print("1 - Atualizar preço da motocicleta")
+        print("2 - Atualizar modelo da motocicleta")
+        print("3 - Atualizar placa da motocicleta")
+        print("0 - Voltar ao menu anterior")
+        opcao = input("Digite o número da opção desejada: ")
+
+        if opcao == "1":
+            atualizarPrecoMotocicleta()
+        elif opcao == "2":
+            atualizarModeloMotocicleta()
+        elif opcao == "3":
+            atualizarPlacaMotocicleta()
+        elif opcao == "0":
+            break
+        else:
+            print("Comando Inválido!")
+
+def atualizarDadosVenda():
+    while True:
+        print("\n--- Atualizar Dados das Vendas ---")
+        print("1 - Atualizar data da venda")
+        print("2 - Atualizar ID do cliente")
+        print("3 - Atualizar ID da venda")
+        print("0 - Voltar ao menu anterior")
+        opcao = input("Digite o número da opção desejada: ")
+
+        if opcao == "1":
+            atualizarDataVenda()
+        elif opcao == "2":
+            atualizarIdCliente()
+        elif opcao == "3":
+            atualizarIdVendidaVenda()
+        elif opcao == "0":
+            break
+        else:
+            print("Comando Inválido!")
+
+def menu():
+    opcoes = {
+        "1": criaTabelas,
+        "2": adicionarCampo,
+        "3": exibirDados,
+        "4": atualizarDadosCliente,
+        "5": atualizarDadosMotocicleta,
+        "6": atualizarDadosVenda,
+        "0": exit
+    }
+
+    while True:
+        print("\n--- MENU ---")
+        print("1 - Criar tabelas")
+        print("2 - Adicionar Campo")
+        print("3 - Exibir Dados")
+        print("4 - Atualizar dados dos clientes")
+        print("5 - Atualizar motos")
+        print("6 - Atualizar vendas")
+        print("0 - Sair do programa")
+        opcao = input("Digite o número da opção desejada: ")
+
+        if opcao in opcoes:
+            opcoes[opcao]()
+        else:
+            print("Comando Inválido!")
+
 
 menu()
