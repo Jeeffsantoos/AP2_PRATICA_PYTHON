@@ -1,85 +1,107 @@
-from criaTabelas import criaTabelaCliente, criaTabelaVendas, criaTabelaMotocicleta
-from adicionarCampo import adicionarCliente, adicionarMotocicleta, adicionarVenda
-from exibirDados import exibirClientes, exibirMotocicletas, exibirVendas
-from atualizarDadosCliente import atualizarCpfCliente, atualizarNomeCliente, atualizarTelefoneCliente
-from atualizarDadosMotocicleta import atualizarModeloMotocicleta, atualizarPlacaMotocicleta, atualizarPrecoMotocicleta
-from atualizarDadosVenda import atualizarDataVenda, atualizarIdCliente, atualizarIdVendidaVenda
+import mysql.connector
 
+# Função para conectar ao banco de dados
+def conectar():
+    return mysql.connector.connect(
+        host="localhost",
+        user="seu_usuario",
+        password="sua_senha",
+        database="nome_do_banco"
+    )
 
-if __name__ == '__main__':
-    criaTabelaCliente()
-    criaTabelaMotocicleta()
-    criaTabelaVendas()
-import os
+# Função para criar uma tabela de motos
+def criar_tabela_motos():
+    conn = conectar()
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS motos (id INT AUTO_INCREMENT PRIMARY KEY, marca VARCHAR(255), modelo VARCHAR(255), ano INT)")
+    conn.close()
 
+# Função para inserir uma moto na tabela
+def inserir_moto():
+    conn = conectar()
+    cursor = conn.cursor()
+    marca = input("Digite a marca da moto: ")
+    modelo = input("Digite o modelo da moto: ")
+    ano = input("Digite o ano da moto: ")
+    sql = "INSERT INTO motos (marca, modelo, ano) VALUES (%s, %s, %s)"
+    valores = (marca, modelo, ano)
+    cursor.execute(sql, valores)
+    conn.commit()
+    print("Moto inserida com sucesso!")
+    conn.close()
 
-def excluir_arquivo():
-   nome_arquivo = input("Digite o nome do arquivo que deseja excluir: ")
-   if os.path.exists(nome_arquivo):
-       opcao = input(f'Tem certeza que deseja excluir o arquivo "{nome_arquivo}"? Digite "A" para SIM ou "B" para voltar ao menu anterior: ')
-       if opcao == "A":
-           os.remove(nome_arquivo)
-           print(f'O arquivo "{nome_arquivo}" foi excluído com sucesso.')
-       elif opcao == "B":
-           print("Voltando ao menu anterior...")
-       else:
-           print('Opção Inválida! Digite "A" para excluir o arquivo ou "B" para voltar ao menu anterior.')
-   else:
-       print(f'O arquivo "{nome_arquivo}" não existe.')
+# Função para listar todas as motos
+def listar_motos():
+    conn = conectar()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM motos")
+    motos = cursor.fetchall()
+    if not motos:
+        print("Não há motos cadastradas.")
+    else:
+        for moto in motos:
+            print(f"ID: {moto[0]}, Marca: {moto[1]}, Modelo: {moto[2]}, Ano: {moto[3]}")
+    conn.close()
 
+# Função para atualizar os dados de uma moto
+def atualizar_moto():
+    conn = conectar()
+    cursor = conn.cursor()
+    id_moto = input("Digite o ID da moto que deseja atualizar: ")
+    marca = input("Digite a nova marca da moto: ")
+    modelo = input("Digite o novo modelo da moto: ")
+    ano = input("Digite o novo ano da moto: ")
+    sql = "UPDATE motos SET marca=%s, modelo=%s, ano=%s WHERE id=%s"
+    valores = (marca, modelo, ano, id_moto)
+    cursor.execute(sql, valores)
+    conn.commit()
+    if cursor.rowcount == 0:
+        print("Nenhuma moto encontrada com esse ID.")
+    else:
+        print("Moto atualizada com sucesso!")
+    conn.close()
 
-def ler_arquivo():
-   nome_arquivo = input("Digite o nome do arquivo que deseja ler: ")
-   if os.path.exists(nome_arquivo):
-       with open(nome_arquivo, 'r') as arquivo:
-           conteudo = arquivo.read()
-           print(f'Conteúdo do arquivo "{nome_arquivo}":\n{conteudo}')
-   else:
-       print(f'O arquivo "{nome_arquivo}" não existe.')
+# Função para excluir uma moto
+def excluir_moto():
+    conn = conectar()
+    cursor = conn.cursor()
+    id_moto = input("Digite o ID da moto que deseja excluir: ")
+    sql = "DELETE FROM motos WHERE id=%s"
+    valores = (id_moto,)
+    cursor.execute(sql, valores)
+    conn.commit()
+    if cursor.rowcount == 0:
+        print("Nenhuma moto encontrada com esse ID.")
+    else:
+        print("Moto excluída com sucesso!")
+    conn.close()
 
-
-def adicionar_arquivo():
-   nome_arquivo = input("Digite o nome do arquivo que deseja adicionar: ")
-   conteudo = input("Digite o conteúdo do arquivo: ")
-   with open(nome_arquivo, 'w') as arquivo:
-       arquivo.write(conteudo)
-   print(f'O arquivo "{nome_arquivo}" foi adicionado com sucesso.')
-
-
-def editar_arquivo():
-   nome_arquivo = input("Digite o nome do arquivo que deseja editar: ")
-   if os.path.exists(nome_arquivo):
-       conteudo = input("Digite o novo conteúdo do arquivo: ")
-       with open(nome_arquivo, 'w') as arquivo:
-           arquivo.write(conteudo)
-       print(f'O arquivo "{nome_arquivo}" foi editado com sucesso.')
-   else:
-       print(f'O arquivo "{nome_arquivo}" não existe.')
-
-
+# Função para exibir o menu e processar as opções
 def menu():
-   nome = input("Digite seu nome: ")
-   print(f'Seja bem-vindo, {nome}!')
-   while True:
-       print("\nO que você deseja fazer?")
-       print("1 - Excluir um arquivo")
-       print("2 - Ler um arquivo")
-       print("3 - Adicionar algum arquivo")
-       print("4 - Editar algum arquivo")
-       opcao = input("Digite o número da opção desejada: ")
+    while True:
+        print("\n--- MENU ---")
+        print("1 - Criar tabela de motos")
+        print("2 - Inserir uma moto")
+        print("3 - Listar motos")
+        print("4 - Atualizar moto")
+        print("5 - Excluir moto")
+        print("0 - Sair do programa")
+        opcao = input("Digite o número da opção desejada: ")
 
-
-       if opcao == "1":
-           excluir_arquivo()
-       elif opcao == "2":
-           ler_arquivo()
-       elif opcao == "3":
-           adicionar_arquivo()
-       elif opcao == "4":
-           editar_arquivo()
-       else:
-           print("Opção inválida! Digite um número válido.")
-           continue
-
+        if opcao == "1":
+            criar_tabela_motos()
+        elif opcao == "2":
+            inserir_moto()
+        elif opcao == "3":
+            listar_motos()
+        elif opcao == "4":
+            atualizar_moto()
+        elif opcao == "5":
+            excluir_moto()
+        elif opcao == "0":
+            print("Saindo do programa...")
+            break
+        else:
+            print("Comando Inválido!")
 
 menu()
