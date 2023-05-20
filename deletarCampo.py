@@ -1,7 +1,7 @@
 import sqlite3
 
 # Deleta o cliente no banco de dados
-def DeletarCliente(id):
+def deletarCliente(id):
     try:
         TABLE_NAME = "Clientes"
 
@@ -19,7 +19,7 @@ def DeletarCliente(id):
         print("Erro ao deletar o cliente: ", str(e))
 
 # Deleta a motocicleta no banco de dados
-def DeletarMotocicleta(id):
+def deletarMotocicleta(id):
     try:
         TABLE_NAME = "Motocicletas"
 
@@ -37,7 +37,7 @@ def DeletarMotocicleta(id):
         print("Erro ao deletar a motocicleta: ", str(e))
 
 # Deleta a venda no banco de dados
-def DeletarVenda(id):
+def deletarVenda(id):
     try:
         TABLE_NAME = "Vendas"
 
