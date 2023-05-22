@@ -195,5 +195,6 @@ pyrightconfig.json
 # Dbeaver
 .metadata/
 General/
+CRUD_AP2.db
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
