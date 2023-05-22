@@ -9,7 +9,9 @@ def deletarCliente(id):
             cursor = connection.cursor()
 
             cursor.execute(
-                f"DELETE FROM {TABLE_NAME} WHERE id = ?",
+                # Está vendo o id?
+                # era pra ele estar como ClienteId (Nome que demos para ele)
+                f"DELETE FROM {TABLE_NAME} WHERE ClienteId = ?",
                 (id,),
             )
 
@@ -27,7 +29,7 @@ def deletarMotocicleta(id):
             cursor = connection.cursor()
 
             cursor.execute(
-                f"DELETE FROM {TABLE_NAME} WHERE id = ?",
+                f"DELETE FROM {TABLE_NAME} WHERE MotoId = ?",
                 (id,),
             )
 
@@ -45,7 +47,7 @@ def deletarVenda(id):
             cursor = connection.cursor()
             
             cursor.execute(
-                f"DELETE FROM {TABLE_NAME} WHERE id = ?",
+                f"DELETE FROM {TABLE_NAME} WHERE VendaId = ?",
                 (id,),
             )
 
