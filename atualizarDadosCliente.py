@@ -15,7 +15,7 @@ def atualizarNomeCliente(id , nome):
             )
 
             connection.commit()
-            print("Cliente atualizado com sucesso.")
+            print("\nCliente atualizado com sucesso.")
             
     except Exception as e:
         print("Erro ao atualizar o cliente: ", str(e))
@@ -35,7 +35,7 @@ def atualizarCpfCliente(id , cpf):
             )
 
             connection.commit()
-            print("Cliente atualizado com sucesso.")
+            print("\nCliente atualizado com sucesso.")
             
     except Exception as e:
         print("Erro ao atualizar o cliente: ", str(e))
@@ -55,7 +55,7 @@ def atualizarTelefoneCliente(id, telefone):
             )
 
             connection.commit()
-            print("Cliente atualizado com sucesso.")
+            print("\nCliente atualizado com sucesso.")
             
     except Exception as e:
         print("Erro ao atualizar o cliente: ", str(e))

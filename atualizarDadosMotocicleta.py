@@ -15,7 +15,7 @@ def atualizarModeloMotocicleta(MotoId, modelo):
             )
 
             connection.commit()
-            print("Motocicleta atualizada com sucesso.")
+            print("\nMotocicleta atualizada com sucesso.")
             
     except Exception as e:
         print("Erro ao atualizar a Motocicleta: ", str(e))
@@ -35,7 +35,7 @@ def atualizarPlacaMotocicleta(MotoId , placa):
             )
 
             connection.commit()
-            print("Motocicleta atualizada com sucesso.")
+            print("\nMotocicleta atualizada com sucesso.")
             
     except Exception as e:
         print("Erro ao atualizar a Motocicleta: ", str(e))
@@ -55,7 +55,7 @@ def atualizarPrecoMotocicleta(MotoId, preco):
             )
 
             connection.commit()
-            print("Motocicleta atualizada com sucesso.")
+            print("\nMotocicleta atualizada com sucesso.")
             
     except Exception as e:
         print("Erro ao atualizar a Motocicleta: ", str(e))

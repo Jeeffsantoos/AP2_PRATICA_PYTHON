@@ -15,7 +15,7 @@ def atualizarDataVenda(VendaId, data):
             )
 
             connection.commit()
-            print("Venda atualizada com sucesso.")
+            print("\nVenda atualizada com sucesso.")
             
     except Exception as e:
         print("Erro ao atualizar a Venda: ", str(e))
@@ -35,7 +35,7 @@ def atualizarIdCliente(VendaId , idCliente):
             )
 
             connection.commit()
-            print("Venda atualizada com sucesso.")
+            print("\nVenda atualizada com sucesso.")
             
     except Exception as e:
         print("Erro ao atualizar a Venda: ", str(e))
@@ -55,7 +55,7 @@ def atualizarIdVendidaVenda(VendaId, idVenda):
             )
 
             connection.commit()
-            print("Venda atualizada com sucesso.")
+            print("\nVenda atualizada com sucesso.")
             
     except Exception as e:
         print("Erro ao atualizar a Venda: ", str(e))
