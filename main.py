@@ -1,5 +1,3 @@
-# Função para exibir o menu e processar as opções
-
 from criaTabelas import criaTabelaCliente, criaTabelaVendas, criaTabelaMotocicleta
 from adicionarCampo import adicionarCliente, adicionarMotocicleta, adicionarVenda
 from deletarCampo import deletarCliente, deletarMotocicleta, deletarVenda
@@ -10,72 +8,58 @@ from atualizarDadosVenda import atualizarDataVenda, atualizarIdCliente, atualiza
 
 def menu():
    while True:
-       print("\n MENU")
-       print("1 - Criar tabelas")
-       print("2 - Adiconar campo")
-       print("3 - Deletar Campo")
-       print("4 - Exibir dados")
-       print("5 - Atualizar dados dos clientes")
-       print("6 - Atualizar motos")
-       print("7 - Atualizar vendas")
-       print("0 - Sair do programa")
+       print("\nMENU\n")
+       print("1 - Adiconar campo")
+       print("2 - Deletar Campo")
+       print("3 - Exibir dados")
+       print("4 - Atualizar dados dos clientes")
+       print("5 - Atualizar motos")
+       print("6 - Atualizar vendas")
+       print("0 - Sair do programa\n")
        opcao = input("Digite o número da opção desejada: ")
 
 
        if opcao == "1":
-           criaTabelas()
-       elif opcao == "2":
            adicionarCampo()
-       elif opcao == "3":
-           deletarCampo()
-       elif opcao == "4":
-           exibirDados()
-       elif opcao == "5":
-           atualizarDadosCliente()
-       elif opcao == "6":
-           atualizarDadosMotocicleta()
-       elif opcao == "7":
-           atualizarDadosVenda()
-       elif opcao == "0":
-           print("Saindo do programa...")
-           menu()
-       else:
-           print("Comando Inválido!")
-
-# Refazer
-def criaTabelas():
-   while True:
-       print("\n--- Qual tabela você deseja criar? ---")
-       print("1 - Criar tabela de clientes")
-       print("2 - Criar tabela de vendas")
-       print("3 - Criar tabela de motocicletas")
-       print("0 - Voltar ao menu anterior")
-       opcao = input("Digite o número da opção desejada: ")
-
-
-       if opcao == "1":
-           criaTabelaCliente()
+           break
        elif opcao == "2":
-           criaTabelaVendas()
+           deletarCampo()
+           break
        elif opcao == "3":
-           criaTabelaMotocicleta()
+           exibirDados()
+           break
+       elif opcao == "4":
+           atualizarDadosCliente()
+           break
+       elif opcao == "5":
+           atualizarDadosMotocicleta()
+           break
+       elif opcao == "6":
+           atualizarDadosVenda()
+           break
        elif opcao == "0":
-           menu()
+           print("\nSaindo do programa...")
+           break
        else:
-           print("Comando Inválido!")
+           print("\nComando Inválido!")
+
+def criaTabelas():
+    criaTabelaCliente()
+    criaTabelaVendas()
+    criaTabelaMotocicleta()
 
 
 def adicionarCampo():
    while True:
-       print("--- O que você deseja adicionar? ---")
+       print("\n--- O que você deseja adicionar? ---")
        print("1 - Adicionar cliente")
        print("2 - Adicionar motocicleta")
        print("3 - Adicionar venda")
-       print("0 - Voltar ao menu anterior")
+       print("0 - Voltar ao menu anterior\n")
        opcao = input("Digite o número da opção desejada: ")
 
        if opcao == "1":
-           nome = input("Digite o nome do cliente: ")
+           nome = input("\nDigite o nome do cliente: ")
            cpf = input("Digite o CPF do cliente: ")
            telefone = input("Digite o telefone do cliente: ")
            adicionarCliente(nome, cpf, telefone)
@@ -91,8 +75,9 @@ def adicionarCampo():
            adicionarVenda(clienteId, motoId, data)
        elif opcao == "0":
            menu()
+           break
        else:
-           print("Comando Inválido!")
+           print("\nComando Inválido!")
 
 def deletarCampo():
     while True:
@@ -100,7 +85,7 @@ def deletarCampo():
         print("1 - Deletar cliente")
         print("2 - Deletar motocicleta")
         print("3 - Deletar venda")
-        print("0 - Voltar ao menu anterior")
+        print("0 - Voltar ao menu anterior\n")
         opcao = input("Digite o número da opção desejada: ")
 
         if opcao == "1":
@@ -113,9 +98,10 @@ def deletarCampo():
             venda_id = int(input("Digite o ID da venda que deseja deletar: "))
             deletarVenda(venda_id)
         elif opcao == "0":
-            menu()
+           menu()
+           break
         else:
-            print("Comando Inválido!")
+           print("\nComando Inválido!")
 
 def exibirDados():
    while True:
@@ -123,7 +109,7 @@ def exibirDados():
        print("1 - Exibir lista de clientes")
        print("2 - Exibir dados das motocicletas")
        print("3 - Exibir vendas efetuadas")
-       print("0 - Voltar ao menu anterior")
+       print("0 - Voltar ao menu anterior\n")
        opcao = input("Digite o número da opção desejada: ")
 
 
@@ -135,8 +121,9 @@ def exibirDados():
            exibirVendas()
        elif opcao == "0":
            menu()
+           break
        else:
-           print("Comando Inválido!")
+           print("\nComando Inválido!")
 
 def atualizarDadosCliente():
    while True:
@@ -144,8 +131,20 @@ def atualizarDadosCliente():
        print("1 - Atualizar CPF do cliente")
        print("2 - Atualizar nome do cliente")
        print("3 - Atualizar telefone do cliente")
-       print("0 - Voltar ao menu anterior")
+       print("0 - Voltar ao menu anterior\n")
        opcao = input("Digite o número da opção desejada: ")
+
+       if opcao == "1":
+           atualizarCpfCliente()
+       elif opcao == "2":
+           atualizarNomeCliente()
+       elif opcao == "3":
+           atualizarTelefoneCliente()
+       elif opcao == "0":
+           menu()
+           break
+       else:
+           print("\nComando Inválido!")
 
 def atualizarDadosMotocicleta():
    while True:
@@ -153,7 +152,7 @@ def atualizarDadosMotocicleta():
        print("1 - Atualizar preço da motocicleta")
        print("2 - Atualizar modelo da motocicleta")
        print("3 - Atualizar placa da motocicleta")
-       print("0 - Voltar ao menu anterior")
+       print("0 - Voltar ao menu anterior\n")
        opcao = input("Digite o número da opção desejada: ")
 
 
@@ -165,8 +164,9 @@ def atualizarDadosMotocicleta():
            atualizarPlacaMotocicleta()
        elif opcao == "0":
            menu()
+           break
        else:
-           print("Comando Inválido!")
+           print("\nComando Inválido!")
 
 def atualizarDadosVenda():
    while True:
@@ -174,7 +174,7 @@ def atualizarDadosVenda():
        print("1 - Atualizar data da venda")
        print("2 - Atualizar ID do cliente")
        print("3 - Atualizar ID da venda")
-       print("0 - Voltar ao menu anterior")
+       print("0 - Voltar ao menu anterior\n")
        opcao = input("Digite o número da opção desejada: ")
 
 
@@ -186,9 +186,11 @@ def atualizarDadosVenda():
            atualizarIdVendidaVenda()
        elif opcao == "0":
            menu()
+           break
        else:
-           print("Comando Inválido!")
+           print("\nComando Inválido!")
 
 
 if __name__ == '__main__':
+    criaTabelas()
     menu()
