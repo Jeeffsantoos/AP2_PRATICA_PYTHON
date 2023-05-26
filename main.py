@@ -190,7 +190,6 @@ def atualizarDadosVenda():
        else:
            print("\nComando Inválido!")
 
-
 if __name__ == '__main__':
     criaTabelas()
     menu()
