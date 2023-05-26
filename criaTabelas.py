@@ -24,7 +24,6 @@ def criaTabelaMotocicleta():
             )
             
             connection.commit()
-            print("O arquivo do banco de dados foi criado com sucesso.")
     except Exception as e:
         print("Erro ao criar o arquivo do banco de dados (Motocicletas): ", str(e))
     
@@ -47,7 +46,6 @@ def criaTabelaCliente():
             )
             
             connection.commit()
-            print("O arquivo do banco de dados foi criado com sucesso.")
     except Exception as e:
         print("Erro ao criar o arquivo do banco de dados (Clientes): ", str(e))
 
@@ -72,6 +70,5 @@ def criaTabelaVendas():
             )
 
             connection.commit()
-            print("O arquivo do banco de dados foi criado com sucesso.")
     except Exception as e:
         print("Erro ao criar o arquivo do banco de dados (Vendas): ", str(e))
