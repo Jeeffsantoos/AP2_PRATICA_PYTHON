@@ -196,5 +196,7 @@ pyrightconfig.json
 .metadata/
 General/
 CRUD_AP2.db
+CRUD_AP2
+
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
