@@ -14,7 +14,7 @@ def adicionarCliente(nome, cpf, telefone):
             )
 
             connection.commit()
-            print("Cliente adicionado com sucesso.")
+            print("\nCliente adicionado com sucesso.")
     except Exception as e:
         print("Erro ao adicionar o cliente: ", str(e))
 
@@ -32,7 +32,7 @@ def adicionarMotocicleta(modelo, placa, preco):
             )
 
             connection.commit()
-            print("Motocicleta adicionada com sucesso.")
+            print("\nMotocicleta adicionada com sucesso.")
     except Exception as e:
         print("Erro ao adicionar a motocicleta: ", str(e))
 
@@ -50,7 +50,7 @@ def adicionarVenda(clienteId, motoId, data):
             )
 
             connection.commit()
-            print("Venda adicionada com sucesso.")
+            print("\nVenda adicionada com sucesso.")
 
     except Exception as e:
         print("Erro ao adicionar a venda: ", str(e))
