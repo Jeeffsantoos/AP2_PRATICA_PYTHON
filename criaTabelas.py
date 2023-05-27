@@ -5,6 +5,7 @@ ROOT_DIR = Path(__file__).parent
 DB_NAME = 'CRUD_AP2.db'
 DB_FILE = ROOT_DIR / DB_NAME
 
+# Faz a criação da tabela de motocicletas
 def criaTabelaMotocicleta():
     try:
         
@@ -26,7 +27,8 @@ def criaTabelaMotocicleta():
             connection.commit()
     except Exception as e:
         print("Erro ao criar o arquivo do banco de dados (Motocicletas): ", str(e))
-    
+
+# Faz a criação da tabela de clientes
 def criaTabelaCliente():
     try:
 
@@ -49,6 +51,7 @@ def criaTabelaCliente():
     except Exception as e:
         print("Erro ao criar o arquivo do banco de dados (Clientes): ", str(e))
 
+# Faz a criação da tabela de vendas
 def criaTabelaVendas():
     try:
 

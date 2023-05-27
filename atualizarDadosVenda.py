@@ -40,7 +40,7 @@ def atualizarIdCliente(VendaId , idCliente):
     except Exception as e:
         print("Erro ao atualizar a Venda: ", str(e))
 
-def atualizarIdVendidaVenda(VendaId, idVenda):
+def atualizarIdMotoVendida(VendaId, idMoto):
     try:
         TABLE_NAME = "Vendas"
 
@@ -49,9 +49,9 @@ def atualizarIdVendidaVenda(VendaId, idVenda):
 
             cursor.execute(
                 f'UPDATE {TABLE_NAME} '
-                'SET id_Venda = ? '
+                'SET moto_id = ? '
                 'WHERE VendaId = ?',
-                (idVenda, VendaId)
+                (idMoto, VendaId)
             )
 
             connection.commit()
