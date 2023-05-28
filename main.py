@@ -150,15 +150,17 @@ def atualizarDadosCliente():
         print("3 - Atualizar telefone do cliente")
         print("0 - Voltar ao menu anterior\n")
         opcao = input("Digite o número da opção desejada: ")
-        id_cliente = int(input("Digite o ID do cliente que deseja atualizar: "))
 
         if opcao == "1":
+            id_cliente = int(input("Digite o ID do cliente que deseja atualizar: "))
             cpf_cliente = input("Digite o novo CPF do cliente: ")
             atualizarCpfCliente(id_cliente, cpf_cliente)
         elif opcao == "2":
+            id_cliente = int(input("Digite o ID do cliente que deseja atualizar: "))
             nome_cliente = input("Digite o novo nome do cliente: ")
             atualizarNomeCliente(id_cliente, nome_cliente)
         elif opcao == "3":
+            id_cliente = int(input("Digite o ID do cliente que deseja atualizar: "))
             telefone_cliente = input("Digite o novo telefone do cliente: ")
             atualizarTelefoneCliente(id_cliente, telefone_cliente)
         elif opcao == "0":
@@ -176,15 +178,17 @@ def atualizarDadosMotocicleta():
         print("3 - Atualizar placa da motocicleta")
         print("0 - Voltar ao menu anterior\n")
         opcao = input("Digite o número da opção desejada: ")
-        id_moto = int(input("Digite o ID da motocicleta que deseja atualizar:"))
 
         if opcao == "1":
+            id_moto = int(input("Digite o ID da motocicleta que deseja atualizar:"))
             preco_moto = float(input("Digite o novo preço da motocicleta: "))
             atualizarPrecoMotocicleta(id_moto, preco_moto)
         elif opcao == "2":
+            id_moto = int(input("Digite o ID da motocicleta que deseja atualizar:"))
             modelo_moto = input("Digite o novo modelo da motocicleta: ")    
             atualizarModeloMotocicleta(id_moto, modelo_moto)
         elif opcao == "3":
+            id_moto = int(input("Digite o ID da motocicleta que deseja atualizar:"))
             placa_moto = input("Digite a nova placa da motocicleta: ")
             atualizarPlacaMotocicleta(id_moto, placa_moto)
         elif opcao == "0":
@@ -202,15 +206,17 @@ def atualizarDadosVenda():
         print("3 - Atualizar ID da venda")
         print("0 - Voltar ao menu anterior\n")
         opcao = input("Digite o número da opção desejada: ")
-        id_venda = int(input("Digite o ID da venda que deseja atualizar: "))
 
         if opcao == "1":
+            id_venda = int(input("Digite o ID da venda que deseja atualizar: "))
             data_venda = input("Digite a nova data da venda: ")
             atualizarDataVenda(id_venda, data_venda)
         elif opcao == "2":
+            id_venda = int(input("Digite o ID da venda que deseja atualizar: "))
             id_cliente = input("Digite o novo ID do cliente: ")
             atualizarIdCliente(id_venda, id_cliente)
         elif opcao == "3":
+            id_venda = int(input("Digite o ID da venda que deseja atualizar: "))
             id_motovendida = input("Digite o novo ID da venda: ")
             atualizarIdMotoVendida(id_venda, id_motovendida)
         elif opcao == "0":
