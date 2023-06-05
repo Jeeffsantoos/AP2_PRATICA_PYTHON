@@ -7,6 +7,19 @@ def atualizarNomeCliente(id , nome):
         with sqlite3.connect("CRUD_AP2.db") as connection:
             cursor = connection.cursor()
 
+            # Checa se o cliente existe
+            cursor.execute(
+                f'SELECT * FROM {TABLE_NAME} '
+                'WHERE ClienteId = ?',
+                (id,)
+            )
+
+            cliente = cursor.fetchone()
+
+            if cliente is None:
+                print("\nCliente não encontrado.")
+                return
+            
             cursor.execute(
                 f'UPDATE {TABLE_NAME} '
                 'SET nome = ? '
@@ -26,7 +39,20 @@ def atualizarCpfCliente(id , cpf):
 
         with sqlite3.connect("CRUD_AP2.db") as connection:
             cursor = connection.cursor()
+            
+            # Checa se o cliente existe
+            cursor.execute(
+                f'SELECT * FROM {TABLE_NAME} '
+                'WHERE ClienteId = ?',
+                (id,)
+            )
 
+            cliente = cursor.fetchone()
+
+            if cliente is None:
+                print("\nCliente não encontrado.")
+                return
+            
             cursor.execute(
                 f'UPDATE {TABLE_NAME} '
                 'SET cpf = ? '
@@ -47,6 +73,19 @@ def atualizarTelefoneCliente(id, telefone):
         with sqlite3.connect("CRUD_AP2.db") as connection:
             cursor = connection.cursor()
 
+            # Checa se o cliente existe
+            cursor.execute(
+                f'SELECT * FROM {TABLE_NAME} '
+                'WHERE ClienteId = ?',
+                (id,)
+            )
+
+            cliente = cursor.fetchone()
+
+            if cliente is None:
+                print("\nCliente não encontrado.")
+                return
+            
             cursor.execute(
                 f'UPDATE {TABLE_NAME} '
                 'SET telefone = ? '

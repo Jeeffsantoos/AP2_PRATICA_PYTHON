@@ -7,6 +7,19 @@ def atualizarModeloMotocicleta(MotoId, modelo):
         with sqlite3.connect("CRUD_AP2.db") as connection:
             cursor = connection.cursor()
 
+            # Checa se o cliente existe
+            cursor.execute(
+                f'SELECT * FROM {TABLE_NAME} '
+                'WHERE MotoId = ?',
+                (id,)
+            )
+
+            moto = cursor.fetchone()
+
+            if moto is None:
+                print("\nMotocicleta não encontrada.")
+                return
+
             cursor.execute(
                 f'UPDATE {TABLE_NAME} '
                 'SET modelo = ? '
@@ -27,6 +40,19 @@ def atualizarPlacaMotocicleta(MotoId , placa):
         with sqlite3.connect("CRUD_AP2.db") as connection:
             cursor = connection.cursor()
 
+            # Checa se o cliente existe
+            cursor.execute(
+                f'SELECT * FROM {TABLE_NAME} '
+                'WHERE MotoId = ?',
+                (id,)
+            )
+
+            moto = cursor.fetchone()
+
+            if moto is None:
+                print("\nMotocicleta não encontrada.")
+                return
+
             cursor.execute(
                 f'UPDATE {TABLE_NAME} '
                 'SET placa = ? '
@@ -46,6 +72,19 @@ def atualizarPrecoMotocicleta(MotoId, preco):
 
         with sqlite3.connect("CRUD_AP2.db") as connection:
             cursor = connection.cursor()
+
+            # Checa se o cliente existe
+            cursor.execute(
+                f'SELECT * FROM {TABLE_NAME} '
+                'WHERE MotoId = ?',
+                (id,)
+            )
+
+            moto = cursor.fetchone()
+
+            if moto is None:
+                print("\nMotocicleta não encontrada.")
+                return
 
             cursor.execute(
                 f'UPDATE {TABLE_NAME} '
