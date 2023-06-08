@@ -22,7 +22,7 @@ from atualizarDadosVenda import (
 def menu():
     while True:
         print("\nMENU\n")
-        print("1 - Adiconar campo")
+        print("1 - Adicionar campo")
         print("2 - Deletar Campo")
         print("3 - Exibir dados")
         print("4 - Atualizar dados dos clientes")
