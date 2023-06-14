@@ -1,3 +1,4 @@
+import os
 from criaTabelas import criaTabelaCliente, criaTabelaVendas, criaTabelaMotocicleta
 from adicionarCampo import adicionarCliente, adicionarMotocicleta, adicionarVenda
 from deletarCampo import deletarCliente, deletarMotocicleta, deletarVenda
@@ -18,6 +19,8 @@ from atualizarDadosVenda import (
     atualizarIdMotoVendida,
 )
 
+def limpar_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def menu():
     while True:
@@ -72,20 +75,79 @@ def adicionarCampo():
         opcao = input("Digite o número da opção desejada: ")
 
         if opcao == "1":
-            nome = input("\nDigite o nome do cliente: ")
-            cpf = input("Digite o CPF do cliente: ")
-            telefone = input("Digite o telefone do cliente: ")
-            adicionarCliente(nome, cpf, telefone)
+            usuarios = []
+            quantidade = int(input("Digite a quantidade de campos que deseja adicionar: "))
+            for i in range(quantidade):
+                nome = input("\nDigite o nome do cliente: ")
+                cpf = input("Digite o CPF do cliente: ")
+                telefone = input("Digite o telefone do cliente: ")
+                usuarios.append([nome, cpf, telefone])
+            limpar_terminal()
+
+
+            for usuario in usuarios:
+                print(f"Nome: {usuario[0]} | CPF: {usuario[1]} | Telefone: {usuario[2]}")
+
+            print("Deseja adicionar todos esses usuários?")
+            print("1 - Sim")
+            print("2 - Não")
+            opcao = input("Digite o número da opção desejada: ")
+            if opcao == "1":
+                for usuario in usuarios:
+                    adicionarCliente(usuario[0], usuario[1], usuario[2])
+            else:
+                print("Usuários não adicionados!")
+                break
+
         elif opcao == "2":
-            modelo = input("Digite o modelo da motocicleta: ")
-            placa = input("Digite a placa da motocicleta: ")
-            preco = input("Digite o preço da motocicleta: ")
-            adicionarMotocicleta(modelo, placa, preco)
+            moto = []
+            quantidade = int(input("Digite a quantidade de campos que deseja adicionar: "))
+            for i in range(quantidade):
+                modelo = input("\nDigite o modelo da motocicleta: ")
+                placa = input("Digite a placa da motocicleta: ")
+                preco = input("Digite o preço da motocicleta: ")
+                moto.append([modelo, placa, preco])
+            limpar_terminal()
+
+            for motos in moto:
+                print(f"Modelo: {motos[0]} | Placa: {motos[1]} | Preço: {motos[2]}")
+            
+            print("Deseja adicionar todos esses usuários?")
+            print("1 - Sim")
+            print("2 - Não")
+            opcao = input("Digite o número da opção desejada: ")
+            if opcao == "1":
+                for motos in moto:
+                    adicionarMotocicleta(motos[0], motos[1], motos[2])
+            else:
+                print("Motos não adicionadas!")
+                break
+
+
         elif opcao == "3":
-            clienteId = input("Digite o ID do cliente: ")
-            motoId = input("Digite o ID da motocicleta: ")
-            data = input("Digite a data da venda: ")
-            adicionarVenda(clienteId, motoId, data)
+            venda = []
+            quantidade = int(input("Digite a quantidade de campos que deseja adicionar: "))
+            for i in range(quantidade):
+                clienteId = input("Digite o ID do cliente: ")
+                motoId = input("Digite o ID da motocicleta: ")
+                data = input("Digite a data da venda: ")
+                venda.append([clienteId, motoId, data])
+            limpar_terminal()
+
+            for vendas in venda:
+                print(f"ID do cliente: {vendas[0]} | ID da motocicleta: {vendas[1]} | Data da venda: {vendas[2]}")
+
+            print("Deseja adicionar todos esses usuários?")
+            print("1 - Sim")
+            print("2 - Não")
+            opcao = input("Digite o número da opção desejada: ")
+            if opcao == "1":
+                for vendas in venda:
+                    adicionarVenda(vendas[0], vendas[1], vendas[2])
+            else:
+                print("Vendas não adicionadas!")
+                break
+
         elif opcao == "0":
             menu()
             break
@@ -130,11 +192,20 @@ def exibirDados():
         opcao = input("Digite o número da opção desejada: ")
 
         if opcao == "1":
+            limpar_terminal()
             exibirClientes()
+            print("\n Pressione qualquer botão para voltar ao menu")
+            input()
         elif opcao == "2":
+            limpar_terminal()
             exibirMotocicletas()
+            print("\n Pressione qualquer botão para voltar ao menu")
+            input()
         elif opcao == "3":
+            limpar_terminal()
             exibirVendas()
+            print("\n Pressione qualquer botão para voltar ao menu")
+            input()
         elif opcao == "0":
             menu()
             break
