@@ -19,6 +19,12 @@ from atualizarDadosVenda import (
     atualizarIdMotoVendida,
 )
 
+from exportar import (
+    exportarClientes,
+    exportarMotocicletas,
+    exportarVendas,
+)
+
 def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -31,6 +37,7 @@ def menu():
         print("4 - Atualizar dados dos clientes")
         print("5 - Atualizar motos")
         print("6 - Atualizar vendas")
+        print("7 - Exportar dados para CSV")
         print("0 - Sair do programa\n")
         opcao = input("Digite o número da opção desejada: ")
 
@@ -51,6 +58,9 @@ def menu():
             break
         elif opcao == "6":
             atualizarDadosVenda()
+            break
+        elif opcao == "7":
+            exportarDados()
             break
         elif opcao == "0":
             print("\nSaindo do programa...")
@@ -296,6 +306,28 @@ def atualizarDadosVenda():
         else:
             print("\nComando Inválido!")
 
+
+# Opção de exportar dados para um CSV
+
+def exportarDados():
+    print("\n--- O que você deseja exportar? ---")
+    print("1 - Exportar Clientes\n")
+    print("2 - Exportar Motocicletas\n")
+    print("3 - Exportar Vendas\n")
+    print("0 - Voltar ao menu anterior\n")
+
+    opcao = int(input("Digite o número da opção desejada: "))
+
+    if opcao == 1:
+        exportarClientes()
+    elif opcao == 2:
+        exportarMotocicletas()
+    elif opcao == 3:
+        exportarVendas()
+    elif opcao == 0:
+        menu()
+    else:
+        print("\nComando Inválido!")
 
 if __name__ == "__main__":
     criaTabelas()
